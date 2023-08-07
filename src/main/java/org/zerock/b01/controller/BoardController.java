@@ -93,4 +93,19 @@ public class BoardController {
         redirectAttributes.addFlashAttribute("result", "removed");
         return "redirect:/board/list";
     }
+
+    @GetMapping("/home")
+    public void home(PageRequestDTO pageRequestDTO, Model model) {
+
+        PageResponseDTO<BoardDTO> responseDTO = boardService.list(pageRequestDTO);
+
+        log.info(responseDTO);
+
+        model.addAttribute("responseDTO", responseDTO);
+    }
+
+
+
+
+
 }
