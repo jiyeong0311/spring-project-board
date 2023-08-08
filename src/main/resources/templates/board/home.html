@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"-->
+<!--pageEncoding="UTF-8"%>-->
+<!--<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>-->
+<!--<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>-->
+<!--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,7 +14,10 @@ pageEncoding="UTF-8"%>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script src="/webjars/jquery/jquery.min.js"></script>
 
-    <link href="/css원본/detail.css" rel="stylesheet" type="text/css">
+    <link href="/css/detail.css" rel="stylesheet" type="text/css">
+    <th:block th:each="cssFile : ${T(org.springframework.util.ResourceUtils).getFile('classpath:static/css').listFiles()}">
+        <link rel="stylesheet" th:href="@{/css/__${cssFile.name}__}" />
+    </th:block>
 
     <!-- template -->
     <!-- Google Fonts -->

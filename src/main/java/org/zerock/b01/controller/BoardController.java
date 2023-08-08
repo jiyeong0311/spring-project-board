@@ -95,13 +95,10 @@ public class BoardController {
     }
 
     @GetMapping("/home")
-    public void home(PageRequestDTO pageRequestDTO, Model model) {
+    public void home() {
 
-        PageResponseDTO<BoardDTO> responseDTO = boardService.list(pageRequestDTO);
+        log.info("Home...............");
 
-        log.info(responseDTO);
-
-        model.addAttribute("responseDTO", responseDTO);
     }
 
 
